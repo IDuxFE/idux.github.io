@@ -1,0 +1,1 @@
+const e=["red","orange","brown","yellow","canary","bud","green","turquoise","cyan","glacier","blue","indigo","purple","magenta"];function o(r){return e.includes(r)}const n=["primary","info","pending","success","warning","error"];function s(r){return n.includes(r)}export{s as a,o as i};
