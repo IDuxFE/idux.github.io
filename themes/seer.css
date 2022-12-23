@@ -9877,10 +9877,13 @@ td.ix-table-fix-end {
 }
 .ix-table-sm .ix-table-col-expandable,
 .ix-table-sm .ix-table-col-selectable {
-  width: 32px;
+  width: 36px;
+}
+.ix-table-sm .ix-table-col-indexable {
+  width: 48px;
 }
 .ix-table-col-selectable.ix-table-sm-col-with-dropdown {
-  width: 52px;
+  width: 56px;
 }
 .ix-table-md {
   font-size: var(--ix-font-size-sm);
@@ -9914,6 +9917,9 @@ td.ix-table-fix-end {
 .ix-table-md .ix-table-col-expandable,
 .ix-table-md .ix-table-col-selectable {
   width: 40px;
+}
+.ix-table-md .ix-table-col-indexable {
+  width: 48px;
 }
 .ix-table-md .ix-table-col-selectable.ix-table-col-with-dropdown {
   width: 60px;
@@ -9950,6 +9956,9 @@ td.ix-table-fix-end {
 .ix-table-lg .ix-table-col-expandable,
 .ix-table-lg .ix-table-col-selectable {
   width: 48px;
+}
+.ix-table-lg .ix-table-col-indexable {
+  width: 60px;
 }
 .ix-table-lg .ix-table-col-selectable.ix-table-col-with-dropdown {
   width: 68px;
@@ -12710,9 +12719,6 @@ h5.ix-typography,
 .ix-pro-table-layout-tool-tree-title {
   height: 24px;
   line-height: 24px;
-}
-.ix-pro-table.ix-table .ix-table-col-indexable {
-  width: 48px;
 }
 .ix-pro-table .ix-table-container .ix-pro-table-layout-tool-trigger {
   position: absolute;
