@@ -2641,9 +2641,6 @@ progress {
 .ix-collapse-ghost .ix-collapse-panel {
   border-color: transparent;
 }
-.ix-collapse-ghost .ix-collapse-panel .ix-header {
-  background-color: transparent;
-}
 .ix-collapse-ghost .ix-collapse-panel-content {
   border-color: transparent;
   background-color: var(--ix-background-color);
@@ -6640,7 +6637,7 @@ progress {
   margin: 0;
   padding: 0;
   color: var(--ix-text-color-title);
-  background-color: var(--ix-background-color);
+  background-color: transparent;
   position: relative;
   display: flex;
   align-items: center;
@@ -7428,6 +7425,11 @@ progress {
   display: inline-flex;
   justify-content: center;
   flex-direction: column;
+  opacity: 0;
+  transition: opacity var(--ix-transition-duration-medium) var(--ix-ease-in-out);
+}
+.ix-input-number:hover:not(.ix-input-disabled) .ix-input-suffix {
+  opacity: 1;
 }
 .ix-layout {
   box-sizing: border-box;
@@ -8276,24 +8278,21 @@ progress {
 .ix-pagination-item-jumper:hover > .ix-pagination-item-ellipsis {
   display: none;
 }
-.ix-pagination-item:hover {
+.ix-pagination-item:hover:not(.ix-pagination-item-disabled) {
   color: var(--ix-text-color);
 }
-.ix-pagination-item:hover .ix-pagination-item-content {
+.ix-pagination-item:hover:not(.ix-pagination-item-disabled) .ix-pagination-item-content {
   background-color: var(--ix-background-color-deep);
 }
-.ix-pagination-item.ix-pagination-item-active {
+.ix-pagination-item.ix-pagination-item-active:not(.ix-pagination-item-disabled) {
   color: var(--ix-text-color-inverse);
 }
-.ix-pagination-item.ix-pagination-item-active .ix-pagination-item-content {
+.ix-pagination-item.ix-pagination-item-active:not(.ix-pagination-item-disabled) .ix-pagination-item-content {
   background-color: var(--ix-color-primary);
 }
 .ix-pagination-item.ix-pagination-item-disabled {
   cursor: not-allowed;
   color: var(--ix-text-color-disabled);
-}
-.ix-pagination-item.ix-pagination-item-disabled .ix-pagination-item-content {
-  background-color: var(--ix-background-color);
 }
 .ix-pagination-item.ix-pagination-item-active.ix-pagination-item-disabled .ix-pagination-item-content {
   background-color: var(--ix-background-color-deep);
@@ -13384,7 +13383,7 @@ h5.ix-typography,
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: width 0.24s;
+  transition: width var(--ix-transition-duration-medium) var(--ix-ease-in-out);
 }
 .ix-pro-tree-header-wrapper,
 .ix-pro-tree-search-wrapper {
@@ -13398,6 +13397,9 @@ h5.ix-typography,
 }
 .ix-pro-tree-search-wrapper .ix-input-suffix {
   color: #bec3cc;
+}
+.ix-pro-tree-header-wrapper {
+  min-height: 40px;
 }
 .ix-pro-tree-header-wrapper .ix-icon {
   font-size: 16px;
