@@ -95,8 +95,8 @@
   --ix-spacing-lg: 16px;
   --ix-spacing-xl: 24px;
   --ix-spacing-2xl: 32px;
-  --ix-transition-duration-fast: 0.1s;
-  --ix-transition-duration-medium: 0.2s;
+  --ix-transition-duration-fast: 0.18s;
+  --ix-transition-duration-medium: 0.24s;
   --ix-transition-duration-slow: 0.3s;
   --ix-ease-in: cubic-bezier(0.12, 0, 0.39, 0);
   --ix-ease-out: cubic-bezier(0.61, 1, 0.88, 1);
@@ -538,7 +538,15 @@ progress {
 .ix-collapse-transition-enter-active,
 .ix-collapse-transition-leave-active {
   overflow: hidden;
-  transition: height var(--ix-transition-duration-medium) var(--ix-ease-in-out), width var(--ix-transition-duration-medium) var(--ix-ease-in-out), opacity var(--ix-transition-duration-medium) var(--ix-ease-in-out);
+  transition-property: height, width, opacity;
+}
+.ix-collapse-transition-enter-active {
+  transition-duration: var(--ix-transition-duration-slow);
+  transition-timing-function: var(--ix-ease-out-quint);
+}
+.ix-collapse-transition-leave-active {
+  transition-duration: var(--ix-transition-duration-medium);
+  transition-timing-function: var(--ix-ease-out-quint);
 }
 .ix-mask {
   position: fixed;
@@ -1501,35 +1509,19 @@ progress {
 .ix-zoom-leave-active {
   transform-origin: 50% 50%;
   transition-property: opacity, transform;
-  transition-duration: var(--ix-transition-duration-medium);
 }
 .ix-zoom-enter-active {
+  transition-duration: var(--ix-transition-duration-slow);
   transition-timing-function: var(--ix-ease-out-circ);
 }
 .ix-zoom-leave-active {
+  transition-duration: var(--ix-transition-duration-medium);
   transition-timing-function: var(--ix-ease-in-circ);
 }
 .ix-zoom-enter-from,
 .ix-zoom-leave-to {
   opacity: 0;
-  transform: scale(0.8);
-}
-.ix-zoom-fast-enter-active,
-.ix-zoom-fast-leave-active {
-  transform-origin: 50% 50%;
-  transition-property: opacity, transform;
-  transition-duration: var(--ix-transition-duration-fast);
-}
-.ix-zoom-fast-enter-active {
-  transition-timing-function: var(--ix-ease-out-circ);
-}
-.ix-zoom-fast-leave-active {
-  transition-timing-function: var(--ix-ease-in-circ);
-}
-.ix-zoom-fast-enter-from,
-.ix-zoom-fast-leave-to {
-  opacity: 0;
-  transform: scale(0.8);
+  transform: scale(0.2);
 }
 .ix-badge {
   box-sizing: border-box;
@@ -2121,14 +2113,11 @@ progress {
 .ix-card-sm .ix-card-body {
   padding: 12px;
 }
-.ix-card-sm .ix-card-footer {
-  padding: 12px;
-}
 .ix-card-sm .ix-header + .ix-card-body {
   padding-top: 4px;
 }
-.ix-card-sm .ix-card-body + .ix-card-footer {
-  padding-top: 0;
+.ix-card-sm .ix-card-footer button {
+  margin: 2px 0;
 }
 .ix-card-md {
   font-size: 14px;
@@ -2141,14 +2130,11 @@ progress {
 .ix-card-md .ix-card-body {
   padding: 16px;
 }
-.ix-card-md .ix-card-footer {
-  padding: 16px;
-}
 .ix-card-md .ix-header + .ix-card-body {
   padding-top: 4px;
 }
-.ix-card-md .ix-card-body + .ix-card-footer {
-  padding-top: 0;
+.ix-card-md .ix-card-footer button {
+  margin: 4px 0;
 }
 .ix-card-lg {
   font-size: 16px;
@@ -2161,14 +2147,11 @@ progress {
 .ix-card-lg .ix-card-body {
   padding: 24px;
 }
-.ix-card-lg .ix-card-footer {
-  padding: 24px;
-}
 .ix-card-lg .ix-header + .ix-card-body {
   padding-top: 4px;
 }
-.ix-card-lg .ix-card-body + .ix-card-footer {
-  padding-top: 0;
+.ix-card-lg .ix-card-footer button {
+  margin: 8px 0;
 }
 .ix-card-borderless {
   border: none;
@@ -2447,12 +2430,13 @@ progress {
 .ix-slide-up-leave-active {
   transform-origin: 0% 0%;
   transition-property: transform, opacity;
-  transition-duration: var(--ix-transition-duration-medium);
 }
 .ix-slide-up-enter-active {
+  transition-duration: var(--ix-transition-duration-medium);
   transition-timing-function: var(--ix-ease-out-quint);
 }
 .ix-slide-up-leave-active {
+  transition-duration: var(--ix-transition-duration-fast);
   transition-timing-function: var(--ix-ease-in-quint);
 }
 .ix-slide-up-enter-from,
@@ -2464,12 +2448,13 @@ progress {
 .ix-slide-down-leave-active {
   transform-origin: 100% 100%;
   transition-property: transform, opacity;
-  transition-duration: var(--ix-transition-duration-medium);
 }
 .ix-slide-down-enter-active {
+  transition-duration: var(--ix-transition-duration-medium);
   transition-timing-function: var(--ix-ease-out-quint);
 }
 .ix-slide-down-leave-active {
+  transition-duration: var(--ix-transition-duration-fast);
   transition-timing-function: var(--ix-ease-in-quint);
 }
 .ix-slide-down-enter-from,
@@ -2481,12 +2466,13 @@ progress {
 .ix-slide-left-leave-active {
   transform-origin: 0% 0%;
   transition-property: transform, opacity;
-  transition-duration: var(--ix-transition-duration-medium);
 }
 .ix-slide-left-enter-active {
+  transition-duration: var(--ix-transition-duration-medium);
   transition-timing-function: var(--ix-ease-out-quint);
 }
 .ix-slide-left-leave-active {
+  transition-duration: var(--ix-transition-duration-fast);
   transition-timing-function: var(--ix-ease-in-quint);
 }
 .ix-slide-left-enter-from,
@@ -2498,17 +2484,50 @@ progress {
 .ix-slide-right-leave-active {
   transform-origin: 100% 0;
   transition-property: transform, opacity;
-  transition-duration: var(--ix-transition-duration-medium);
 }
 .ix-slide-right-enter-active {
+  transition-duration: var(--ix-transition-duration-medium);
   transition-timing-function: var(--ix-ease-out-quint);
 }
 .ix-slide-right-leave-active {
+  transition-duration: var(--ix-transition-duration-fast);
   transition-timing-function: var(--ix-ease-in-quint);
 }
 .ix-slide-right-enter-from,
 .ix-slide-right-leave-to {
   opacity: 0;
+  transform: scaleX(0.8);
+}
+.ix-slide-auto-enter-active,
+.ix-slide-auto-leave-active {
+  transform-origin: 0% 0%;
+  transition-property: transform, opacity;
+}
+.ix-slide-auto-enter-active[data-popper-placement^='top'],
+.ix-slide-auto-leave-active[data-popper-placement^='top'] {
+  transform-origin: 100% 100%;
+}
+.ix-slide-auto-enter-active[data-popper-placement^='left'],
+.ix-slide-auto-leave-active[data-popper-placement^='left'] {
+  transform-origin: 100% 0;
+}
+.ix-slide-auto-enter-active {
+  transition-duration: var(--ix-transition-duration-medium);
+  transition-timing-function: var(--ix-ease-out-quint);
+}
+.ix-slide-auto-leave-active {
+  transition-duration: var(--ix-transition-duration-fast);
+  transition-timing-function: var(--ix-ease-in-quint);
+}
+.ix-slide-auto-enter-from,
+.ix-slide-auto-leave-to {
+  opacity: 0;
+  transform: scaleY(0.8);
+}
+.ix-slide-auto-enter-from[data-popper-placement^='right'],
+.ix-slide-auto-leave-to[data-popper-placement^='right'],
+.ix-slide-auto-enter-from[data-popper-placement^='left'],
+.ix-slide-auto-leave-to[data-popper-placement^='left'] {
   transform: scaleX(0.8);
 }
 .ix-cascader-option {
@@ -3800,7 +3819,7 @@ progress {
 .ix-fade-fast-enter-active,
 .ix-fade-fast-leave-active {
   transition-property: opacity;
-  transition-duration: 0.2s;
+  transition-duration: 0.18s;
   transition-timing-function: linear;
 }
 .ix-fade-fast-enter-from,
@@ -3808,10 +3827,10 @@ progress {
   opacity: 0;
 }
 .ix-fade-down-enter-active {
-  transition: opacity 0.2s cubic-bezier(0.37, 0, 0.63, 1), transform 0.2s cubic-bezier(0.37, 0, 0.63, 1);
+  transition: opacity 0.18s cubic-bezier(0.37, 0, 0.63, 1), transform 0.18s cubic-bezier(0.37, 0, 0.63, 1);
 }
 .ix-fade-down-leave-active {
-  transition: opacity 0.2s cubic-bezier(0.37, 0, 0.63, 1), transform 0.2s cubic-bezier(0.37, 0, 0.63, 1);
+  transition: opacity 0.18s cubic-bezier(0.37, 0, 0.63, 1), transform 0.18s cubic-bezier(0.37, 0, 0.63, 1);
 }
 .ix-fade-down-enter-from,
 .ix-fade-down-leave-to {
@@ -7870,6 +7889,9 @@ progress {
 .ix-menu-overlay .ix-menu {
   box-shadow: none;
 }
+.ix-menu-overlay[data-popper-placement^='top'] {
+  transform-origin: 100% 100%;
+}
 .ix-move-up-enter-active,
 .ix-move-up-leave-active {
   transition-property: transform, opacity;
@@ -8966,7 +8988,7 @@ progress {
   position: absolute;
   height: 2px;
   border-radius: 2px;
-  transition: background-color 0.28s;
+  transition: background-color 0.3s;
   width: 100%;
   background-color: #e1e5eb;
 }
@@ -8974,7 +8996,7 @@ progress {
   position: absolute;
   height: 2px;
   border-radius: 2px;
-  transition: background-color 0.28s;
+  transition: background-color 0.3s;
   background-color: #1c6eff;
 }
 .ix-slider-step {
