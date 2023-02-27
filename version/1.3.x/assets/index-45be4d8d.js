@@ -1,0 +1,31 @@
+import{Y as K,al as N,m as B,A as T,ac as M,am as Q,L as k}from"./index-4edbd2bb.js";import{f as v,aw as _,w as D,v as S,y as o,k as E,ad as F,i as w,a2 as R,z as U,p as V}from"./vendor-1c103b38.js";/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */function q(e,n){return v(()=>{const t=e.value,a=n.value;let i;a<=9?i=z(1,a):i=G(t,a);const s={type:"prev",disabled:t===1},u={type:"next",disabled:t===a};return[s,...i,u]})}const z=(e,n)=>{const t=[];for(let a=e;a<=n;a++)t.push({index:a,type:"page"});return t},G=(e,n)=>{let t=[];const a={type:"prev5"},i={type:"next5"};e<5?t=[...z(2,5),i]:e<n-3?t=[a,...z(e-2,e+2),i]:t=[a,...z(n-4,n-1)];const s=z(1,1),u=z(n,n);return[...s,...t,...u]};/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */function O(e,n,t){return _(i=>{const s=i.target,u=Math.floor(K(s.value,e.value));n(u),t.value||(s.value="")},["enter"])}/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */function Y(e,n){const[t,a]=N(e,"pageIndex",1),[i,s]=N(e,"pageSize",e.pageSize??n.pageSize),u=v(()=>Math.max(Math.ceil(e.total/i.value),1)),d=l=>{const p=H(l,u.value);p!==t.value&&(a(p),B(e.onChange,p,i.value))},c=l=>{s(l),B(e.onChange,t.value,l)};return D([t,u],([l,p])=>{l>p&&d(p)},{immediate:!0}),{activeIndex:t,activeSize:i,lastIndex:u,changePageIndex:d,changePageSize:c}}const H=(e,n)=>e>n?n:e<1?1:e;/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const b=Symbol("paginationToken");/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const L={pageIndex:Number,pageSize:Number,disabled:{type:Boolean,default:!1},pageSizes:Array,showQuickJumper:{type:Boolean,default:void 0},showSizeChanger:{type:Boolean,default:void 0},showTitle:{type:Boolean,default:void 0},showTotal:{type:Boolean,default:void 0},simple:{type:Boolean,default:void 0},size:String,total:{type:Number,default:0},"onUpdate:pageIndex":[Function,Array],"onUpdate:pageSize":[Function,Array],onChange:[Function,Array]},W={disabled:{type:Boolean,default:void 0},index:Number,type:{type:String,required:!0}},J={prev:"left",next:"right",prev5:"double-left",next5:"double-right",page:""},X={next:1,prev:-1,prev5:-5,next5:5},j=S({props:W,setup(e){const{props:n,slots:t,config:a,locale:i,mergedPrefixCls:s,activeIndex:u,changePageIndex:d}=w(b),c=v(()=>u.value===e.index),l=v(()=>e.disabled||n.disabled),p=v(()=>n.showTitle??a.showTitle),h=v(()=>{const r=`${s.value}-item`;return{[r]:!0,[`${r}-${e.type}`]:!0,[`${r}-active`]:c.value,[`${r}-disabled`]:l.value}}),$=v(()=>{if(!p.value)return;const{type:r,index:f}=e;return r==="page"?f:i.pagination[r]}),I=()=>{if(l.value)return;const{type:r,index:f}=e;let m;r==="page"?m=f:m=u.value+X[r],d(m)},C=r=>{l.value||r.code!=="Enter"||I()};return()=>{const r=`${s.value}-item`,{index:f,type:m}=e,P=l.value;let g;e.type==="prev5"||m==="next5"?g=o("span",{class:` ${r}-jumper`},[o(T,{name:J[m]},null),o(T,{class:`${r}-ellipsis`,name:"ellipsis"},null)]):E(f)?g=o(T,{name:J[m]},null):g=F(f);const x=t.item?t.item({index:f,type:m,active:c.value,disabled:P,original:g}):g;return o("li",{class:h.value,tabindex:P?-1:0,title:$.value,onClick:I,onKeydown:C},[o("span",{class:`${r}-content`},[x])])}}}),Z=S({setup(){const{props:e,locale:n,mergedPrefixCls:t,mergedSize:a,jumpToIndex:i}=w(b);return()=>{const s=`${t.value}-jumper`,{disabled:u}=e,{jumpTo:d,page:c}=n.pagination;return o("li",{class:s},[d,o(M,{disabled:u,size:a.value==="lg"?"md":"sm",onKeydown:i},null),c])}}}),ee=S({setup(){const{props:e,config:n,locale:t,mergedPrefixCls:a,mergedSize:i,activeSize:s,changePageSize:u}=w(b),d=v(()=>{const{pageSizes:c=n.pageSizes}=e;return c.map(l=>({key:l,label:l}))});return()=>{const c=`${a.value}-sizes`,{itemsPerPage:l,itemsSuffix:p}=t.pagination;return o("li",{class:c},[l,o(Q,{disabled:e.disabled,dataSource:d.value,size:i.value==="lg"?"md":"sm",value:s.value,onChange:u},null),p])}}}),te=S({setup(){const{props:e,slots:n,locale:t,activeIndex:a,activeSize:i,mergedPrefixCls:s}=w(b),u=v(()=>{const d=a.value,c=i.value,l=(d-1)*c+1,p=Math.min(d*c,e.total);return[l,p]});return()=>{const d=`${s.value}-total`,{total:c}=e,{totalPrefix:l,totalSuffix:p}=t.pagination,h=n.total?n.total({total:c,range:u.value,prefix:l,suffix:p}):`${l} ${c} ${p}`;return o("li",{class:d},[h])}}}),ne=S({name:"IxPagination",props:L,setup(e,{slots:n}){const t=k("common"),a=v(()=>`${t.prefixCls}-pagination`),i=k("locale"),s=k("pagination"),u=v(()=>e.showTotal??s.showTotal),d=v(()=>e.simple??s.simple),c=v(()=>e.size??s.size),l=v(()=>e.showQuickJumper??s.showQuickJumper),p=v(()=>e.showSizeChanger??s.showSizeChanger),{activeIndex:h,activeSize:$,lastIndex:I,changePageIndex:C,changePageSize:r}=Y(e,s),f=q(h,I),m=O(h,C,d);V(b,{props:e,slots:n,config:s,locale:i,mergedPrefixCls:a,mergedSize:c,activeIndex:h,activeSize:$,lastIndex:I,changePageIndex:C,changePageSize:r,jumpToIndex:m});const P=v(()=>{const g=a.value;return U({[g]:!0,[`${g}-disabled`]:e.disabled,[`${g}-simple`]:d.value,[`${g}-${c.value}`]:!0})});return()=>{const g=a.value,x=u.value?[o(te,null,null)]:[];if(d.value){const y=h.value,A=I.value;x.push(o(j,{disabled:y===1,type:"prev"},null)),x.push(o("li",{class:`${g}-item`},[l.value?o(M,{disabled:e.disabled,size:c.value==="lg"?"md":"sm",value:y.toString(),onKeydown:m},null):y,o("span",{class:`${g}-item-slash`},[F("/")]),o("span",null,[A])])),x.push(o(j,{disabled:y===A,type:"next"},null))}else f.value.forEach(y=>x.push(o(j,R({key:y.type+"-"+y.index},y),null))),p.value&&x.push(o(ee,null,null)),l.value&&x.push(o(Z,null,null));return o("ul",{class:P.value},[x])}}});/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const le=ne;export{le as I};
