@@ -2714,7 +2714,7 @@ progress {
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
-  align-items: flex-start;
+  align-items: stretch;
   font-size: 12px;
   overflow: auto;
 }
@@ -9307,6 +9307,7 @@ progress {
   bottom: 0;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.4);
+  pointer-events: auto;
 }
 .ix-spin-spinner {
   position: absolute;
