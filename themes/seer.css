@@ -626,7 +626,7 @@ progress {
   border-right-color: initial;
   transform-origin: center right;
 }
-.ix-overlay[data-popper-reference-hidden] {
+.ix-overlay[data-popper-reference-hidden]:not(.ix-overlay-animating) {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
