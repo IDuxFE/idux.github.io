@@ -3034,8 +3034,6 @@ progress {
   flex: none;
 }
 .ix-date-picker-panel .ix-date-panel-header button {
-  font-size: 12px;
-  font-weight: 400;
   transition: color 0.24s;
   background-color: transparent;
   border-style: none;
@@ -3051,6 +3049,8 @@ progress {
   display: inline-block;
   visibility: hidden;
   padding: 0 4px;
+  font-size: 16px;
+  font-weight: 400;
 }
 .ix-date-picker-panel .ix-date-panel-header-prev.visible,
 .ix-date-picker-panel .ix-date-panel-header-next.visible,
@@ -3063,6 +3063,8 @@ progress {
 }
 .ix-date-picker-panel .ix-date-panel-header-content button:not(:first-child) {
   margin-left: 16px;
+  font-size: 12px;
+  font-weight: 500;
 }
 .ix-date-picker-panel .ix-date-panel-body {
   padding: 0;
@@ -3383,9 +3385,9 @@ progress {
   width: 220px;
 }
 .ix-date-range-picker-panel-separator {
-  width: 1px;
+  width: 0;
   margin: 0 16px;
-  background-color: #d3d7de;
+  background-color: none;
 }
 .ix-date-range-picker-panel .ix-date-panel {
   display: flex;
@@ -3407,8 +3409,6 @@ progress {
   flex: none;
 }
 .ix-date-range-picker-panel .ix-date-panel-header button {
-  font-size: 12px;
-  font-weight: 400;
   transition: color 0.24s;
   background-color: transparent;
   border-style: none;
@@ -3424,6 +3424,8 @@ progress {
   display: inline-block;
   visibility: hidden;
   padding: 0 4px;
+  font-size: 16px;
+  font-weight: 400;
 }
 .ix-date-range-picker-panel .ix-date-panel-header-prev.visible,
 .ix-date-range-picker-panel .ix-date-panel-header-next.visible,
@@ -3436,6 +3438,8 @@ progress {
 }
 .ix-date-range-picker-panel .ix-date-panel-header-content button:not(:first-child) {
   margin-left: 16px;
+  font-size: 12px;
+  font-weight: 500;
 }
 .ix-date-range-picker-panel .ix-date-panel-body {
   padding: 0;
@@ -9025,7 +9029,6 @@ progress {
   background-color: #ffffff;
   border-radius: 2px;
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-  overflow: auto;
 }
 .ix-select-overlay-search-wrapper {
   padding: 4px 12px 8px;
@@ -9040,11 +9043,14 @@ progress {
 .ix-select-overlay .ix-select-option-grouped {
   padding-left: 24px;
 }
-.ix-select-overlay-multiple .ix-select-option-selected:not(.ix-select-overlay-multiple .ix-select-option-disabled) {
+.ix-select-panel {
+  overflow: auto;
+}
+.ix-select-panel-multiple .ix-select-option-selected:not(.ix-select-panel-multiple .ix-select-option-disabled) {
   background-color: #ffffff;
   color: #2f3540;
 }
-.ix-select-overlay-multiple .ix-select-option-active:not(.ix-select-overlay-multiple .ix-select-option-disabled) {
+.ix-select-panel-multiple .ix-select-option-active:not(.ix-select-panel-multiple .ix-select-option-disabled) {
   background-color: #f7f9fc;
 }
 .ix-skeleton {
