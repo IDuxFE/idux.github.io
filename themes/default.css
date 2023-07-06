@@ -11256,7 +11256,7 @@ td.ix-table-fix-end {
   overflow: hidden;
 }
 .ix-text-line-clamp {
-  display: inline-box;
+  display: -webkit-inline-box;
   -webkit-box-orient: vertical;
 }
 .ix-text:not(.ix-text-line-clamp) {
