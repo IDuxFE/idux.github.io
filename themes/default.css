@@ -1369,6 +1369,10 @@ progress {
 .ix-alert-pagination.ix-pagination .ix-pagination-item {
   padding: 0;
 }
+.ix-alert-pagination.ix-pagination .ix-pagination-item-content {
+  height: calc(var(--ix-font-size) + var(--ix-line-height-gutter));
+  line-height: calc(var(--ix-font-size) + var(--ix-line-height-gutter));
+}
 .ix-anchor {
   position: relative;
   padding: 4px 0 4px 2px;
@@ -2231,7 +2235,7 @@ progress {
 .ix-card-footer > li {
   flex: 1;
 }
-.ix-card-footer > li > .ix-button {
+.ix-card-footer > li > .ix-card-footer-button {
   border: none;
   width: 100%;
 }
