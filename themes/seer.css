@@ -3886,11 +3886,13 @@ progress {
 }
 .ix-divider-with-label-start .ix-divider-label,
 .ix-divider-with-label-left .ix-divider-label {
-  left: 5%;
+  left: 0;
+  padding-left: 0;
 }
 .ix-divider-with-label-end .ix-divider-label,
 .ix-divider-with-label-right .ix-divider-label {
-  right: 5%;
+  right: 0;
+  padding-right: 0;
 }
 .ix-divider-plain .ix-divider-label {
   font-weight: 400;
@@ -7577,7 +7579,6 @@ progress {
 .ix-input-addon .ix-selector-content {
   background-color: inherit;
   border-color: transparent;
-  box-shadow: none;
 }
 .ix-input-addon .ix-selector-item {
   left: unset !important;
@@ -7680,7 +7681,7 @@ progress {
 .ix-input.ix-input-invalid .ix-input-addon .ix-selector-content {
   border-color: transparent;
 }
-.ix-input.ix-input-invalid .ix-input-addon .ix-selector.ix-input.ix-input-invalid .ix-input-addon .ix-selector-active .ix-input.ix-input-invalid .ix-input-addon .ix-selector-content {
+.ix-input.ix-input-invalid .ix-input-addon .ix-selector.ix-selector-focused .ix-selector-content {
   border-color: transparent;
   box-shadow: none;
 }
@@ -13404,7 +13405,7 @@ h5.ix-typography,
   height: 32px;
 }
 .ix-pro-table-layout-tool-select-wrapper .ix-checkbox-input {
-  margin: 0 4px;
+  margin-left: 4px;
 }
 .ix-pro-table-layout-tool-tree-wrapper {
   max-height: 320px;
@@ -13412,6 +13413,9 @@ h5.ix-typography,
 }
 .ix-pro-table-layout-tool-tree-wrapper:not(.ix-pro-table-layout-tool-tree-wrapper-with-children) .ix-tree-node-expand-noop {
   width: 0;
+}
+.ix-pro-table-layout-tool-tree-wrapper .ix-tree-node-content-label {
+  padding: 0;
 }
 .ix-pro-table-layout-tool-tree-wrapper .ix-tree-node-content-suffix {
   visibility: hidden;
