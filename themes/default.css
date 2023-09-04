@@ -2164,7 +2164,7 @@ progress {
 .ix-card-sm .ix-header + .ix-card-body {
   padding-top: 4px;
 }
-.ix-card-sm .ix-card-footer button {
+.ix-card-sm .ix-card-footer .ix-card-footer-button {
   margin: 2px 0;
 }
 .ix-card-md {
@@ -2181,7 +2181,7 @@ progress {
 .ix-card-md .ix-header + .ix-card-body {
   padding-top: 4px;
 }
-.ix-card-md .ix-card-footer button {
+.ix-card-md .ix-card-footer .ix-card-footer-button {
   margin: 4px 0;
 }
 .ix-card-lg {
@@ -2198,7 +2198,7 @@ progress {
 .ix-card-lg .ix-header + .ix-card-body {
   padding-top: 4px;
 }
-.ix-card-lg .ix-card-footer button {
+.ix-card-lg .ix-card-footer .ix-card-footer-button {
   margin: 8px 0;
 }
 .ix-card-borderless {
