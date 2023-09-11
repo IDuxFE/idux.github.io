@@ -11403,35 +11403,31 @@ td.ix-table-fix-end {
   padding: 0;
   font-size: var(--ix-font-size);
   line-height: calc(var(--ix-font-size) + var(--ix-line-height-gutter));
-  overflow: hidden;
-}
-.ix-text-line-clamp {
-  /* stylelint-disable */
-  display: -webkit-inline-box;
-  /* stylelint-enable */
-  -webkit-box-orient: vertical;
-}
-.ix-text:not(.ix-text-line-clamp) {
+  position: relative;
   display: inline-block;
   vertical-align: bottom;
-  white-space: nowrap;
+  overflow: hidden;
+}
+.ix-text > .ix-text-expand-icon {
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+.ix-text-expandable:not(.ix-text-has-expand-icon) .ix-text-inner {
+  cursor: pointer;
+}
+.ix-text-inner {
   max-width: 100%;
 }
 .ix-text-copy-icon {
   margin-left: 2px;
-  padding: 2px;
   line-height: 1;
   font-size: var(--ix-font-size-lg);
   color: var(--ix-color-primary);
   cursor: pointer;
 }
-.ix-text-wrapper {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  max-width: 100%;
+.ix-text-expand-icon {
+  color: var(--ix-color-primary);
+  cursor: pointer;
 }
 .ix-textarea {
   box-sizing: border-box;
@@ -14091,9 +14087,65 @@ h5.ix-typography,
   list-style: none;
   display: flex;
   font-size: 12px;
-  height: 32px;
   overflow: visible;
   outline: none;
+}
+.ix-pro-search-md {
+  height: 32px;
+}
+.ix-pro-search-md .ix-pro-search-input-container::after {
+  height: 32px;
+}
+.ix-pro-search-md .ix-pro-search-clear-icon {
+  height: 30px;
+}
+.ix-pro-search-md .ix-pro-search-input-content {
+  margin-left: -4px;
+  margin-bottom: -4px;
+  padding: 3px;
+}
+.ix-pro-search-md .ix-pro-search-search-item {
+  height: 24px;
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
+.ix-pro-search-md .ix-pro-search-temp-segment-input {
+  height: 24px;
+  margin-left: 4px;
+  margin-bottom: 4px;
+}
+.ix-pro-search-md .ix-pro-search-quick-select-panel {
+  padding: 12px;
+}
+.ix-pro-search-sm {
+  height: 24px;
+}
+.ix-pro-search-sm .ix-pro-search-input-container::after {
+  height: 24px;
+}
+.ix-pro-search-sm .ix-pro-search-clear-icon {
+  height: 22px;
+}
+.ix-pro-search-sm .ix-pro-search-input-content {
+  margin-left: -2px;
+  margin-bottom: -2px;
+  padding: 1px;
+}
+.ix-pro-search-sm .ix-pro-search-search-item {
+  height: 20px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+}
+.ix-pro-search-sm .ix-pro-search-temp-segment-input {
+  height: 20px;
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
+.ix-pro-search-sm .ix-pro-search-quick-select-panel {
+  padding: 8px;
+}
+.ix-pro-search .ix-overflow {
+  line-height: 1;
 }
 .ix-pro-search .ix-overflow-item {
   height: auto;
@@ -14118,7 +14170,6 @@ h5.ix-typography,
   content: '';
   background-color: #1c6eff;
   width: 1px;
-  height: 32px;
   position: absolute;
   right: -1px;
   top: -1px;
@@ -14128,9 +14179,6 @@ h5.ix-typography,
   flex-wrap: wrap;
   width: 100%;
   height: auto;
-  padding: 4px 4px;
-  margin-left: -4px;
-  margin-bottom: -4px;
 }
 .ix-pro-search-placeholder {
   color: #a1a7b3;
@@ -14147,7 +14195,6 @@ h5.ix-typography,
   align-items: center;
   justify-content: center;
   width: 16px;
-  height: 30px;
   margin-right: 8px;
   font-size: 16px;
   color: #5e6573;
@@ -14160,7 +14207,7 @@ h5.ix-typography,
   align-items: center;
   justify-content: center;
   width: 32px;
-  height: 32px;
+  height: 100%;
   background-color: #1c6eff;
   color: #ffffff;
   font-size: 16px;
@@ -14202,12 +14249,8 @@ h5.ix-typography,
 }
 .ix-pro-search-search-item {
   display: inline-flex;
-  max-width: 350px;
   align-items: center;
-  height: 22px;
   padding: 2px 4px 2px 8px;
-  margin-bottom: 4px;
-  margin-left: 4px;
   color: #2f3540;
   background-color: #edf1f7;
   border-radius: 2px;
@@ -14277,8 +14320,6 @@ h5.ix-typography,
   cursor: not-allowed;
 }
 .ix-pro-search-segment {
-  height: 22px;
-  max-width: 100%;
   display: inline-block;
 }
 .ix-pro-search-segment-overlay {
@@ -14287,10 +14328,6 @@ h5.ix-typography,
   background-color: #ffffff;
   border-radius: 2px;
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-}
-.ix-pro-search-temp-segment-input {
-  margin-left: 8px;
-  height: 22px;
 }
 .ix-pro-search-name-segment-overlay {
   z-index: 1000;
