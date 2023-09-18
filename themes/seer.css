@@ -13843,7 +13843,7 @@ h5.ix-typography,
 .ix-pro-tree .ix-tree {
   flex: 1;
   height: 0;
-  padding: 0 12px;
+  padding: 0 0;
 }
 .ix-pro-tree .ix-tree.ix-tree-blocked .ix-tree-node {
   padding: 0 0 0 8px;
@@ -14149,6 +14149,7 @@ h5.ix-typography,
 }
 .ix-pro-search .ix-overflow-item {
   height: auto;
+  max-width: 100%;
 }
 .ix-pro-search-input-container {
   position: relative;
@@ -14328,6 +14329,9 @@ h5.ix-typography,
   background-color: #ffffff;
   border-radius: 2px;
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+}
+.ix-pro-search-temp-segment-input {
+  max-width: 100%;
 }
 .ix-pro-search-name-segment-overlay {
   z-index: 1000;
