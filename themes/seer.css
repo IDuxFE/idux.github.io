@@ -8932,8 +8932,8 @@ progress {
 }
 .ix-radio-input-box::after {
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: calc(50% - 8px / 2);
+  left: calc(50% - 8px / 2);
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -11406,11 +11406,23 @@ td.ix-table-fix-end {
   position: relative;
   display: inline-block;
   vertical-align: bottom;
+  max-width: 100%;
   overflow: hidden;
 }
 .ix-text > .ix-text-expand-icon {
   flex-shrink: 0;
   align-self: flex-end;
+}
+.ix-text.ix-text-simple {
+  display: inline-flex;
+  align-items: center;
+}
+.ix-text.ix-text-simple .ix-text-inner {
+  display: inline-block;
+  flex: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .ix-text-expandable:not(.ix-text-has-expand-icon) .ix-text-inner {
   cursor: pointer;
