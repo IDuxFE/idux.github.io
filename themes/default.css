@@ -13610,6 +13610,10 @@ h5.ix-typography,
   margin-bottom: -4px;
   padding: 3px;
 }
+.ix-pro-search-md .ix-pro-search-placeholder {
+  height: 24px;
+  line-height: 24px;
+}
 .ix-pro-search-md .ix-pro-search-search-item {
   height: 24px;
   margin-bottom: 4px;
@@ -13636,6 +13640,10 @@ h5.ix-typography,
   margin-left: -2px;
   margin-bottom: -2px;
   padding: 1px;
+}
+.ix-pro-search-sm .ix-pro-search-placeholder {
+  height: 20px;
+  line-height: 20px;
 }
 .ix-pro-search-sm .ix-pro-search-search-item {
   height: 20px;
