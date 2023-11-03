@@ -10264,10 +10264,9 @@ td.ix-table-fix-end {
 .ix-table-sm .ix-table-expandable-trigger {
   font-size: calc(var(--ix-font-size-sm) + 2px);
 }
-.ix-table-sm .ix-table-expandable-trigger,
-.ix-table-sm .ix-table-expandable-trigger-gap,
-.ix-table-sm .ix-table-expandable-indent {
+.ix-table-sm .ix-table-expandable-wrapper {
   height: calc(100% + 7px);
+  margin-top: -1px;
 }
 .ix-table-sm th.ix-table-cell {
   height: var(--ix-height-md);
@@ -10315,10 +10314,9 @@ td.ix-table-fix-end {
 .ix-table-md .ix-table-expandable-trigger {
   font-size: calc(var(--ix-font-size-sm) + 2px);
 }
-.ix-table-md .ix-table-expandable-trigger,
-.ix-table-md .ix-table-expandable-trigger-gap,
-.ix-table-md .ix-table-expandable-indent {
+.ix-table-md .ix-table-expandable-wrapper {
   height: calc(100% + 7px);
+  margin-top: -1px;
 }
 .ix-table-md th.ix-table-cell {
   height: var(--ix-height-md);
@@ -10363,10 +10361,9 @@ td.ix-table-fix-end {
 .ix-table-lg .ix-table-expandable-trigger {
   font-size: calc(var(--ix-font-size-sm) + 2px);
 }
-.ix-table-lg .ix-table-expandable-trigger,
-.ix-table-lg .ix-table-expandable-trigger-gap,
-.ix-table-lg .ix-table-expandable-indent {
+.ix-table-lg .ix-table-expandable-wrapper {
   height: calc(100% + 7px);
+  margin-top: -1px;
 }
 .ix-table-lg th.ix-table-cell {
   height: var(--ix-height-md);
@@ -10401,6 +10398,8 @@ td.ix-table-fix-end {
   width: 68px;
 }
 .ix-table-expandable-trigger {
+  height: 100%;
+  flex-shrink: 0;
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -10424,6 +10423,8 @@ td.ix-table-fix-end {
   visibility: hidden;
 }
 .ix-table-expandable-trigger-gap {
+  height: 100%;
+  flex-shrink: 0;
   position: relative;
   display: inline-block;
   margin-right: 1px;
@@ -10464,6 +10465,8 @@ td.ix-table-fix-end {
   background-color: var(--ix-border-color-secondary);
 }
 .ix-table-expandable-indent {
+  height: 100%;
+  flex-shrink: 0;
   display: inline-block;
   vertical-align: middle;
   position: relative;
@@ -10476,6 +10479,10 @@ td.ix-table-fix-end {
   height: 100%;
   width: 1px;
   background-color: var(--ix-border-color-secondary);
+}
+.ix-table-expandable-wrapper {
+  display: flex;
+  align-items: center;
 }
 .ix-table tr.ix-table-expanded-row > td {
   background-color: var(--ix-background-color-light);
