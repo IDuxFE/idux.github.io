@@ -10445,7 +10445,7 @@ td.ix-table-fix-end {
   vertical-align: middle;
   position: relative;
 }
-.ix-table-expandable-indent::before {
+.ix-table-expandable-indent-show-line::before {
   content: '';
   position: absolute;
   top: 0;
