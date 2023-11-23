@@ -94,44 +94,12 @@
       })(window.location)
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
-    <script type="module" crossorigin src="/assets/index-20a6d8b7.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-63a43443.js">
-    <link rel="stylesheet" href="/assets/index-206ff304.css">
-    <link type="text/css" rel="stylesheet" href="/themes/default.css" id="theme-link">
+    <script type="module" crossorigin src="/assets/index-a1eb659d.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-4aa48d2c.js">
+    <link rel="stylesheet" href="/assets/index-b58bbe6d.css">
   </head>
   <body>
     <div id="app"></div>
     
-    <script>
-                const createThemeLinkTag = (id, href) => {
-                  const link = document.createElement('link')
-                  link.type = 'text/css'
-                  link.rel = 'stylesheet'
-                  link.id = id
-                  link.href = href
-                  return link
-                }
-                window.changeTheme = (theme) => {
-                  const linkId = 'theme-link'
-                  const href = "/themes/" + theme + ".css"
-                  let styleLink = document.getElementById(linkId)
-                  if (styleLink) {
-                    styleLink.id = linkId + "_old"
-                    const newLink = createThemeLinkTag(linkId, href)
-                    if (styleLink.nextSibling) {
-                      styleLink.parentNode.insertBefore(newLink, styleLink.nextSibling)
-                    } else {
-                      styleLink.parentNode.appendChild(newLink)
-                    }
-                    newLink.onload = () => {
-                      requestAnimationFrame(() => {
-                        styleLink.parentNode.removeChild(styleLink)
-                        styleLink = null
-                      })
-                    }
-                    return
-                  }
-                  document.head.appendChild(createThemeLinkTag(linkId, href))
-                }</script>
   </body>
 </html>
