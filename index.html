@@ -94,12 +94,44 @@
       })(window.location)
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
-    <script type="module" crossorigin src="/assets/index-6cd2cabb.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-4146ff73.js">
-    <link rel="stylesheet" href="/assets/index-a7045466.css">
+    <script type="module" crossorigin src="/assets/index-25c9e6c5.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-9ef21769.js">
+    <link rel="stylesheet" href="/assets/index-cd59a462.css">
+    <link type="text/css" rel="stylesheet" href="/themes/default.css" id="theme-link">
   </head>
   <body>
     <div id="app"></div>
     
+    <script>
+                const createThemeLinkTag = (id, href) => {
+                  const link = document.createElement('link')
+                  link.type = 'text/css'
+                  link.rel = 'stylesheet'
+                  link.id = id
+                  link.href = href
+                  return link
+                }
+                window.changeTheme = (theme) => {
+                  const linkId = 'theme-link'
+                  const href = "/themes/" + theme + ".css"
+                  let styleLink = document.getElementById(linkId)
+                  if (styleLink) {
+                    styleLink.id = linkId + "_old"
+                    const newLink = createThemeLinkTag(linkId, href)
+                    if (styleLink.nextSibling) {
+                      styleLink.parentNode.insertBefore(newLink, styleLink.nextSibling)
+                    } else {
+                      styleLink.parentNode.appendChild(newLink)
+                    }
+                    newLink.onload = () => {
+                      requestAnimationFrame(() => {
+                        styleLink.parentNode.removeChild(styleLink)
+                        styleLink = null
+                      })
+                    }
+                    return
+                  }
+                  document.head.appendChild(createThemeLinkTag(linkId, href))
+                }</script>
   </body>
 </html>
