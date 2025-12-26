@@ -1,0 +1,41 @@
+import{c as u,q as C,H as _,ci as F,bg as W,aI as ee,an as k,f as c,$ as z,d as j,as as $,at as Z,cj as ae,ck as te,aw as N,v as oe,y as ne,x as q,ar as le,a2 as re,ag as se,cl as ie,af as ue,R}from"./index-200961bb.js";/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const A=10,x=1,H=0,ce=.2,ve=90;function de(e,a,t,n,o,l,r){const s=()=>e("next"),g=()=>e("previous"),f=()=>a("left"),m=()=>a("right"),v=()=>t("out"),d=()=>t("in"),w=()=>n(!1);return u(()=>[{key:"goPrevious",icon:"left",opr:g,disabled:l.value.previous,visible:r.value},{key:"goNext",icon:"right",opr:s,disabled:l.value.next,visible:r.value},{key:"rotateLeft",icon:"rotate-left",opr:f,visible:!0},{key:"rotateRight",icon:"rotate-right",opr:m,visible:!0},{key:"zoomOut",icon:"zoom-out",opr:v,disabled:o.value.out,visible:!0},{key:"zoomIn",icon:"zoom-in",opr:d,disabled:o.value.in,visible:!0},{key:"close",icon:"close",opr:w,visible:!0}])}function me(e){const a=C(x),t=C(H),n={left:-1,right:1},o={in:1,out:-1},l=u(()=>{const[v,d]=e.value;return v>x?v:d<x?d:x});_(()=>a.value=l.value);const r=u(()=>{const[v,d]=e.value;return{in:a.value>=d,out:a.value<=v}}),s=u(()=>({transform:`scale(${a.value}) rotate(${t.value}deg)`})),g=F((v="left",d=ve)=>{t.value=t.value+d*n[v]},A),f=F((v,d=ce)=>{r.value[v]||(a.value=a.value+d*o[v])},A);return{transformStyle:s,scaleDisabled:r,rotateHandle:g,scaleHandle:f,resetTransform:()=>{a.value=l.value,t.value=H}}}function ge(e,a){const[t,n]=W(e,"activeIndex",0),o=u(()=>({previous:!a.value&&t.value===0,next:!a.value&&t.value===e.images.length-1})),l=u(()=>e.images.length>1),r=F((s="next")=>{if(s==="next"){if(o.value.next||o.value.previous)return;n(t.value>=e.images.length-1?0:t.value+1);return}n(t.value<=0?e.images.length-1:t.value-1)},A);return{activeIndex:t,switchDisabled:o,switchVisible:l,goHandle:r}}/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const fe=e=>{const{disabled:a,icon:t,prefixCls:n,opr:o}=e,l=ee(),r=u(()=>k({[`${n}-opr-item`]:!0,[`${n}-opr-item-disabled`]:a}));return c(z,{class:r.value,name:t,onClick:o,key:l},null)},we=fe;/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const pe={visible:{type:Boolean,default:void 0},activeIndex:Number,container:{type:[String,HTMLElement,Function],default:void 0},draggable:{type:Boolean,default:void 0},images:{type:Array,default:()=>[]},zoom:{type:Array,validator:e=>e.length===2},loop:{type:Boolean,default:void 0},maskClosable:{type:Boolean,default:void 0},zIndex:Number,"onUpdate:visible":[Function,Array],"onUpdate:activeIndex":[Function,Array]},be={src:{type:String,required:!0},preview:{type:Boolean,default:void 0},imageViewer:Object,onLoad:[Function,Array],onError:[Function,Array]};/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */function U(e){const{colorWhite:a,fontSizeXl:t}=e;return{minWidth:96,minHeight:96,objectFit:"contain",previewBgColor:"rgba(0, 0, 0, 0.5)",previewIconColor:a,previewIconSize:t,viewerBgColor:"rgba(0, 0, 0, 0.45)",viewerOprColor:a,viewerOprColorDisabled:"rgba(255, 255, 255, 0.35)",viewerOprHeight:48,viewerOprMarginBottom:48,viewerOprFontSize:t,viewerOprBgColor:"rgba(0, 0, 0, 0.1)",viewerOprItemMargin:"0 24px"}}/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const G=(e,a)=>U(e);/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const K=ie?"DOMMouseScroll":"mousewheel",X=j({name:"IxImageViewer",props:pe,setup(e){const a=$("common"),{globalHashId:t,hashId:n,registerToken:o}=Z("image");o(G);const l=$("imageViewer"),r=u(()=>`${a.prefixCls}-image-viewer`),s=ae(e,l,a,r),g=u(()=>{var i;return(i=e.draggable)!=null?i:l.draggable}),[f,m]=W(e,"visible",!1),v=te(N(e,"zIndex"),N(a,"overlayZIndex"),f),d=u(()=>{var i;return(i=e.zoom)!=null?i:l.zoom}),w=u(()=>{var i;return(i=e.loop)!=null?i:l.loop}),S=u(()=>{var i;return(i=e.maskClosable)!=null?i:l.maskClosable}),{transformStyle:L,scaleDisabled:V,rotateHandle:b,scaleHandle:I,resetTransform:O}=me(d),{activeIndex:y,switchDisabled:T,switchVisible:h,goHandle:D}=ge(e,w),J=()=>S.value&&m(!1),Q=de(D,b,I,m,V,T,h),{onWheelScroll:P,onKeydown:B}=Ie(f,m,I,D);oe(()=>{window.addEventListener(K,P,{passive:!1,capture:!1}),window.addEventListener("keydown",B,!1)}),ne(()=>{window.removeEventListener(K,P),window.removeEventListener("keydown",B)}),q([f,y],([i])=>{i&&O()});const Y=u(()=>`z-index: ${v.value}`),M=()=>{const i=r.value,p=e.images[y.value];return c("img",{draggable:"false",onClick:E=>E.stopImmediatePropagation(),class:`${i}-preview-img`,src:p,style:L.value},null)};return()=>{const i=r.value;return c(se,{target:s.value,load:f.value},{default:()=>[c(le,{name:`${a.prefixCls}-zoom`,appear:!0},{default:()=>[f.value&&c("div",{class:[i,t.value,n.value],style:Y.value},[c("div",{class:`${i}-opr`},[Q.value.filter(p=>p.visible).map(p=>{const E={...p,prefixCls:i};return c(we,E,null)})]),c("div",{class:`${i}-preview`,onClick:J},[g.value?c(re,{mode:"immediate"},{default:()=>[M()]}):M()])])]})]})}}});function Ie(e,a,t,n){const o=s=>{var m;if(!e.value)return;const g=s;g.preventDefault(),((m=g.wheelDelta)!=null?m:-g.detail)>0?t("in",.2):t("out",.2)},l={ArrowUp:()=>t("in",.2),ArrowDown:()=>t("out",.2),ArrowLeft:()=>n("previous"),ArrowRight:()=>n("next"),Escape:()=>a(!1)};return{onWheelScroll:o,onKeydown:s=>{e.value&&(s.preventDefault(),s.code in l&&l[s.code]())}}}/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const ye=j({name:"IxImage",inheritAttrs:!1,props:be,setup(e,{attrs:a,slots:t}){const{class:n,style:o,...l}=a,r=$("common"),{globalHashId:s,hashId:g,registerToken:f}=Z("image");f(G);const m=u(()=>`${r.prefixCls}-image`),v=$("image"),d=ze(e,v),{status:w,setFailed:S,setLoaded:L}=Se(e),[V,b]=Ce(),{outerClasses:I,overLayerClasses:O,imageClasses:y}=$e(m,s,g,n,w,d);return()=>{var h;const T={visible:V.value,"onUpdate:visible":b,images:[e.src],...(h=e.imageViewer)!=null?h:{}};return c("div",{class:I.value,style:o},[c("div",{class:O.value},[he(e,t,m,w,d,b),xe(t,m,w),ke(t,m,w),c(X,T,null)]),c("img",ue(l,{src:e.src,class:y.value,onLoad:L,onError:S}),null)])}}});function he(e,a,t,n,o,l){var r,s;return n.value==="loaded"&&o.value&&c("span",{class:`${t.value}-preview-wrapper`,onClick:()=>l(!0)},[(s=(r=a.previewIcon)==null?void 0:r.call(a))!=null?s:c(z,{class:`${t.value}-preview-icon`,name:"zoom-in"},null)])}function xe(e,a,t){var n,o;return t.value==="loading"&&((o=(n=e.placeholder)==null?void 0:n.call(e))!=null?o:c(z,{class:`${a.value}-placeholder`,name:"loading"},null))}function ke(e,a,t){var n,o;return t.value==="failed"&&((o=(n=e.fallback)==null?void 0:n.call(e))!=null?o:c(z,{class:`${a.value}-fallback`,name:"file-image"},null))}function Ce(){const e=C(!1);return[e,t=>{e.value=t}]}function $e(e,a,t,n,o,l){const r=u(()=>k([e.value,a.value,t.value,n,`${e.value}-${o.value}`,{[`${e.value}-preview`]:l.value}])),s=u(()=>k(`${e.value}-layer`)),g=u(()=>k([`${e.value}-inner`,{[`${e.value}-inner-hidden`]:o.value!=="loaded"}]));return{outerClasses:r,overLayerClasses:s,imageClasses:g}}function ze(e,a){return u(()=>{var t;return(t=e.preview)!=null?t:a.preview})}function Se(e){const a=C("loading"),t=o=>{a.value="loaded",R(e.onLoad,o)},n=o=>{a.value="failed",R(e.onError,o)};return q(()=>e.src,()=>{a.value="loading"},{immediate:!0}),{status:a,setLoaded:t,setFailed:n}}/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */const Ve=ye,Oe=X;export{Ve as I,Oe as a};

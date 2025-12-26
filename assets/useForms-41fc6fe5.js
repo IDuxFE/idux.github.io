@@ -1,0 +1,21 @@
+var f=Object.defineProperty;var b=(l,s,t)=>s in l?f(l,s,{enumerable:!0,configurable:!0,writable:!0,value:t}):l[s]=t;var c=(l,s,t)=>(b(l,typeof s!="symbol"?s+"":s,t),t);import{b0 as u,c as V,H as a,b1 as i,b2 as m}from"./index-200961bb.js";/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */class C extends u{constructor(t,e,o){super(t,e,o);c(this,"length");this.length=V(()=>this._controls.value.length)}setValue(t,e={}){t.forEach((o,r)=>{const n=this.at(r);n&&n.setValue(o,e)}),e.validate&&this._validate()}getValue(t={}){const{skipDisabled:e}=t;return this._controls.value.filter(r=>!e||!r.disabled.value).map(r=>r.getValue(t))}_watchOtherStatuses(){a(()=>{this._valueRef.value=this.getValue()}),a(()=>{let t="valid";const e=this._controls.value;for(const o of e){const r=o.status.value;if(r==="invalid"){t="invalid";break}r==="validating"&&t==="valid"&&(t="validating")}this._controlsStatus.value=t}),a(()=>{const t=this._controls.value;this._blurred.value=t.some(e=>e.blurred.value)}),a(()=>{const t=this._controls.value;this._dirty.value=t.some(e=>e.dirty.value)})}_calculateInitValue(){return this.getValue()}_forEachControls(t){this._controls.value.forEach(t)}_find(t){return this.at(t)}at(t){return this._controls.value[t]}push(t){t.setParent(this),this._controls.value=[...this._controls.value,t]}insert(t,e){e.setParent(this);const o=[...this._controls.value];o.splice(t,0,e),this._controls.value=o}removeAt(t){const e=[...this._controls.value];e.splice(t,1),this._controls.value=e}clearControls(){this._controls.value=[]}setControl(t,e){e.setParent(this);const o=[...this._controls.value];o.splice(t,1,e),this._controls.value=o}}/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */class h extends u{constructor(s,t,e){super(void 0,t,e,s),this._initValue=s}setValue(s,t={}){this._valueRef.value=s,t.dirty&&this.markAsDirty(),t.blur&&this.markAsBlurred(),t.validate&&this._validate()}getValue(){return this._valueRef.value}_watchOtherStatuses(){}_calculateInitValue(){return this._initValue}_forEachControls(s){}_find(s){}}/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */class v extends u{constructor(s,t,e){super(s,t,e)}setValue(s,t={}){const e=this._controls.value;for(const[o,r]of Object.entries(s)){const n=e[o];n&&n.setValue(r,t)}t.validate&&this._validate()}getValue(s={}){const{skipDisabled:t}=s,e={};return this._forEachControls((o,r)=>{t&&o.disabled.value||(e[r]=o.getValue(s))}),e}_watchOtherStatuses(){a(()=>{this._valueRef.value=this.getValue()}),a(()=>{let s="valid";const t=this._controls.value;for(const e in t){if(!i(t,e))continue;const o=t[e].status.value;if(o==="invalid"){s="invalid";break}o==="validating"&&s==="valid"&&(s="validating")}this._controlsStatus.value=s}),a(()=>{const s=this._controls.value;this._blurred.value=Object.values(s).some(t=>t.blurred.value)}),a(()=>{const s=this._controls.value;this._dirty.value=Object.values(s).some(t=>t.dirty.value)})}_calculateInitValue(){return this.getValue()}_forEachControls(s){const t=this._controls.value;Object.keys(t).forEach(e=>s(t[e],e))}_find(s){const t=this._controls.value;return i(t,s)?t[s]:void 0}addControl(s,t){const e={...this._controls.value};i(e,s)||(t.setParent(this),e[s]=t,this._controls.value=e)}removeControl(s){const t={...this._controls.value};delete t[s],this._controls.value=t}setControl(s,t){t.setParent(this);const e={...this._controls.value};e[s]=t,this._controls.value=e}}/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/IDuxFE/idux/blob/main/LICENSE
+ */function g(l,s,t){const e=_(l);return new v(e,s,t)}function O(l,s,t){const e=l.map(o=>d(o));return new C(e,s,t)}function w(l,s,t){return new h(l,s,t)}function _(l){const s={};for(const[t,e]of Object.entries(l))s[t]=d(e);return s}function d(l){if(m(l))return l;if(Array.isArray(l)){const[t,e,o]=l;return new h(t,e,o)}const s=_(l);return new v(s)}export{g as a,w as b,O as u};
